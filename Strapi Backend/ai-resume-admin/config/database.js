@@ -20,15 +20,21 @@ module.exports = ({ env }) => {
           rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
         },
       },
-      pool: { min: env.int('DATABASE_POOL_MIN', 5), max: env.int('DATABASE_POOL_MAX', 20) },
+      pool: { 
+        min: env.int('DATABASE_POOL_MIN', 5), 
+        max: env.int('DATABASE_POOL_MAX', 30) // Increased max from 20 to 30
+      },
     },
     postgres: {
       connection: {
-        connectionString: env('DATABASE_URL'),  // DATABASE_URL should have SSL config as needed
-        ssl: env.bool('DATABASE_SSL', false) ? { rejectUnauthorized: false } : undefined, 
+        connectionString: env('DATABASE_URL'), // Ensure your DATABASE_URL includes SSL parameters if required.
+        ssl: env.bool('DATABASE_SSL', false) ? { rejectUnauthorized: false } : undefined,
         schema: env('DATABASE_SCHEMA', 'public'),
       },
-      pool: { min: env.int('DATABASE_POOL_MIN', 5), max: env.int('DATABASE_POOL_MAX', 20) },
+      pool: { 
+        min: env.int('DATABASE_POOL_MIN', 5), 
+        max: env.int('DATABASE_POOL_MAX', 30) // Increased max from 20 to 30
+      },
     },
     sqlite: {
       connection: {
@@ -42,7 +48,7 @@ module.exports = ({ env }) => {
     connection: {
       client,
       ...connections[client],
-      acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
+      acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 120000), // Increased timeout from 60000 to 120000
     },
   };
 };

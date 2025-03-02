@@ -1,21 +1,17 @@
 {
-  "collectionName": "components_experience_experiences",
+  "collectionName": "components_education_educations",
   "info": {
-    "displayName": "Experience",
-    "description": ""
+    "displayName": "Education"
   },
   "options": {},
   "attributes": {
-    "title": {
+    "universityName": {
       "type": "string"
     },
-    "companyName": {
+    "degree": {
       "type": "string"
     },
-    "city": {
-      "type": "string"
-    },
-    "state": {
+    "major": {
       "type": "string"
     },
     "startDate": {
@@ -24,8 +20,8 @@
     "endDate": {
       "type": "string"
     },
-    "workSummery": {
-      "type": "text"
+    "description": {
+      "type": "string"
     }
   }
 }

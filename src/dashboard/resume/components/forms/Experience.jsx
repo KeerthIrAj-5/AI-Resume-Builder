@@ -78,7 +78,7 @@ function Experience() {
         })),
       },
     };
-    console.log("Payload data:", data.data.experience);
+    console.log("Payload data:", data.data.experience[0].workSummery);
 
     GlobalApi.UpdateResumeDetail(params.resumeId, data)
       .then(() => {
